@@ -1,11 +1,16 @@
 clientes = [
     {"id": 1, "nombre": "Laura", "empresa": "TechCorp", "facturacion": 12000, "activo": True},
     {"id": 2, "nombre": "Carlos", "empresa": "DevStudio", "facturacion": 8500, "activo": False},
-    {"id": 3, "nombre": "Ana", "empresa": "InnovaSoft", "facturacion": 20000, "activo": True}
+    {"id": 3, "nombre": "Ana", "empresa": "InnovaSoft", "facturacion": 20000, "activo": True},
+    {"id": 4, "nombre": "Miguel", "empresa": "WebSolutions", "facturacion": 15000, "activo": True}
 ]
 
 def obtener_clientes_activos(lista):
     return [c for c in lista if c["activo"]]
+
+def obtener_clientes_facturacion(lista):
+    return [c for c in lista if c["facturacion"] > 10000]
+
 
 def calcular_facturacion_promedio(lista):
     if not lista:
@@ -19,3 +24,8 @@ for cliente in obtener_clientes_activos(clientes):
 
 promedio = calcular_facturacion_promedio(clientes)
 print(f"\nFacturación promedio: {promedio:.2f}€")
+
+
+print("--- CLIENTES Vip ---")
+for cliente in obtener_clientes_facturacion(clientes):
+    print(f"- {cliente['nombre']}")
